@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080810">
+<title>Nur Khalis — Gaming & Digital Creator</title>
+<meta name="description" content="Nur Khalis, dikenal sebagai Kholis. Mengenal perjalanan gaming, pembuatan website, teknologi, dan peluang bisnis digital.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080810;
+  --panel: #11111d;
+  --panel-light: #171727;
+  --purple: #a855f7;
+  --cyan: #22d3ee;
+  --text: #f5f5ff;
+  --muted: #a0a0b8;
+  --border: rgba(255,255,255,.09);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+.gradient {
+  background: linear-gradient(100deg, #c084fc, #818cf8, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* NAVIGATION */
+nav {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 5%;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,16,.88);
+  backdrop-filter: blur(18px);
+}
+.logo {
+  font: 700 24px 'Space Grotesk', sans-serif;
+  letter-spacing: -1px;
+}
+.logo span {
+  color: var(--purple);
+}
+.nav-links {
+  display: flex;
+  gap: 25px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.nav-links a {
+  transition: color .25s;
+}
+.nav-links a:hover {
+  color: var(--cyan);
+}
+/* HERO */
+.hero {
+  min-height: 560px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 85px 0;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  top: -120px;
+  right: -80px;
+  background: var(--purple);
+  filter: blur(180px);
+  opacity: .2;
+  pointer-events: none;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  bottom: -100px;
+  left: -100px;
+  background: var(--cyan);
+  filter: blur(180px);
+  opacity: .1;
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+  animation: heroEnter 1s ease both;
+}
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.profile-photo {
+  display: block;
+  width: 145px;
+  height: 145px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 3px solid var(--purple);
+  box-shadow: 0 0 25px rgba(168,85,247,.3);
+  margin-bottom: 25px;
+  animation: profileGlow 3s ease-in-out infinite alternate;
+}
+@keyframes profileGlow {
+  from {
+    box-shadow: 0 0 15px rgba(168,85,247,.25);
+  }
+  to {
+    box-shadow: 0 0 35px rgba(34,211,238,.4);
+  }
+}
+.tag {
+  display: inline-block;
+  padding: 7px 13px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(168,85,247,.4);
+  background: rgba(168,85,247,.1);
+  border-radius: 30px;
+  color: #d8b4fe;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+h1 {
+  font: 700 clamp(40px, 7vw, 76px)/1.1 'Space Grotesk', sans-serif;
+  letter-spacing: -3px;
+}
+.hero p {
+  max-width: 650px;
+  color: var(--muted);
+  margin: 25px 0 30px;
+  font-size: 15px;
+}
+.buttons {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 21px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .25s;
+}
+.btn-primary {
+  background: linear-gradient(110deg, #9333ea, #6366f1);
+  box-shadow: 0 0 28px rgba(147,51,234,.2);
+  color: white;
+}
+.btn-secondary {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+}
+.btn:hover {
+  transform: translateY(-3px);
+}
+/* STATISTICS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 15px 0 70px;
+}
+.stat {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #12121f, #0c0c15);
+  transition: .3s;
+}
+.stat:hover {
+  border-color: rgba(34,211,238,.4);
+  transform: translateY(-4px);
+}
+.stat strong {
+  display: block;
+  font: 700 25px 'Space Grotesk', sans-serif;
+  color: var(--cyan);
+}
+.stat span {
+  color: var(--muted);
+  font-size: 12px;
+}
+/* SECTIONS */
+section {
+  padding: 40px 0 65px;
+}
+.section-label {
+  margin-bottom: 10px;
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+h2 {
+  font: 700 clamp(28px, 4vw, 42px)/1.25 'Space Grotesk', sans-serif;
+  letter-spacing: -1.3px;
+  margin-bottom: 20px;
+}
+.intro {
+  max-width: 720px;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+.quote {
+  padding: 20px 23px;
+  margin: 25px 0;
+  border-left: 3px solid var(--purple);
+  border-radius: 0 10px 10px 0;
+  background: rgba(168,85,247,.07);
+  color: #ddd6fe;
+  font-size: 15px;
+}
+/* ARTICLE */
+.article-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 30px;
+  align-items: start;
+}
+.article {
+  min-width: 0;
+  padding: clamp(22px, 4vw, 40px);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: var(--panel);
+}
+.article h3 {
+  margin: 28px 0 12px;
+  font: 700 23px 'Space Grotesk', sans-serif;
+  scroll-margin-top: 100px;
+}
+.article h3:first-child {
+  margin-top: 0;
+}
+.article p {
+  margin-bottom: 16px;
+  color: #b8b8cc;
+  font-size: 14px;
+}
+.article strong {
+  color: white;
+}
+.article ul {
+  padding-left: 22px;
+  margin-bottom: 20px;
+  color: #b8b8cc;
+}
+.article li {
+  margin: 8px 0;
+  font-size: 14px;
+}
+/* SIDEBAR */
+.sidebar {
+  position: sticky;
+  top: 100px;
+  display: grid;
+  gap: 16px;
+}
+.side-card {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+}
+.side-card h4 {
+  margin-bottom: 13px;
+  font-size: 14px;
+}
+.side-card a {
+  display: block;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  transition: .25s;
+}
+.side-card a:last-child {
+  border-bottom: 0;
+}
+.side-card a:hover {
+  color: var(--cyan);
+  padding-left: 4px;
+}
+/* DIGITAL OPPORTUNITIES */
+.income-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 30px;
+}
+.income-card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+  transition: .3s;
+}
+.income-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(168,85,247,.5);
+  background: var(--panel-light);
+}
+.icon {
+  margin-bottom: 13px;
+  font-size: 27px;
+}
+.income-card h3 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.income-card p {
+  color: var(--muted);
+  font-size: 12px;
+}
+/* MOTIVATION */
+.motivation-section {
+  padding-top: 65px;
+}
+.motivation-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 35px);
+  margin-bottom: 18px;
+  border: 1px solid rgba(168,85,247,.25);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top right,
+      rgba(168,85,247,.16), transparent 55%),
+    var(--panel);
+  transition: transform .3s, border-color .3s;
+}
+.motivation-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple);
+}
+.motivation-number {
+  margin-bottom: 14px;
+  color: var(--cyan);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+.motivation-card h3 {
+  margin-bottom: 12px;
+  font: 700 clamp(22px, 4vw, 32px)/1.4 'Space Grotesk', sans-serif;
+}
+.motivation-card p {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.motivation-highlight {
+  color: #c084fc;
+}
+/* CLOSING */
+.cta {
+  padding: 48px 30px;
+  border: 1px solid rgba(168,85,247,.25);
+  border-radius: 20px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top,
+      rgba(147,51,234,.17), transparent 65%),
+    var(--panel);
+}
+.cta p {
+  max-width: 540px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+}
+/* FOOTER */
+footer {
+  margin-top: 55px;
+  padding: 30px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+/* SCROLL ANIMATIONS */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* RESPONSIVE */
+@media(max-width: 800px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+  }
+  .income-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero {
+    min-height: auto;
+    padding: 70px 0;
+  }
+  h1 {
+    letter-spacing: -2px;
+  }
+}
+@media(max-width: 500px) {
+  nav {
+    padding: 12px 5%;
+  }
+  .nav-links {
+    gap: 12px;
+    font-size: 11px;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  .profile-photo {
+    width: 125px;
+    height: 125px;
+  }
+  .stats {
+    gap: 8px;
+    margin-bottom: 45px;
+  }
+  .stat {
+    padding: 13px 10px;
+  }
+  .stat strong {
+    font-size: 18px;
+  }
+  .stat span {
+    font-size: 10px;
+  }
+  .article h3 {
+    font-size: 20px;
+  }
+  .cta {
+    padding: 35px 20px;
+  }
+}
+@media(prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav>
+  <a href="#home" class="logo">KHOLIS<span>.</span></a>
+  <div class="nav-links">
+    <a href="#tentang">Tentang</a>
+    <a href="#perjalanan">Artikel</a>
+    <a href="#peluang">Peluang</a>
+    <a href="#motivasi">Motivasi</a>
+  </div>
+</nav>
+<main>
+  <!-- HERO -->
+  <header class="hero container" id="home">
+    <div class="hero-content">
+      <img
+        src="https://cdn.phototourl.com/member/2026-10-22-3758c3af-ab16-48f9-b9a5-8049341a0d3c.jpg"
+        alt="Foto profil Nur Khalis"
+        class="profile-photo"
+        fetchpriority="high"
+      >
+      <br>
+      <span class="tag">GAMING × TECHNOLOGY × DIGITAL</span>
+      <h1>
+        Dari Hobi Menjadi
+        <span class="gradient">Peluang Penghasilan.</span>
+      </h1>
+      <p>
+        Saya <strong>Nur Khalis</strong>, biasa dipanggil Kholis.
+        Saya tertarik pada dunia game, teknologi, dan pengembangan
+        website. Bagi saya, internet bukan sekadar tempat hiburan,
+        tetapi ruang untuk belajar, berkarya, dan membangun peluang.
+      </p>
+      <div class="buttons">
+        <a href="#peluang" class="btn btn-secondary">
+          Jelajahi Peluang ↗
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- STATS -->
+  <div class="container">
+    <div class="stats reveal">
+      <div class="stat">
+        <strong>Gaming</strong>
+        <span>Hobi yang bisa dikembangkan</span>
+      </div>
+      <div class="stat">
+        <strong>Web Dev</strong>
+        <span>Membangun karya digital</span>
+      </div>
+      <div class="stat">
+        <strong>Growth</strong>
+        <span>Belajar dan berkembang</span>
+      </div>
+    </div>
+  </div>
+  <!-- ABOUT -->
+  <section class="container" id="tentang">
+    <div class="section-label">01 — ABOUT ME</div>
+    <h2>Mengenal Nur Khalis.</h2>
+    <p class="intro">
+      Bukan hanya bermain game, tetapi juga mempelajari bagaimana
+      teknologi dapat menciptakan sesuatu yang bernilai.
+    </p>
+    <div class="quote">
+      “Mulai dari rasa penasaran, berkembang melalui proses,
+      dan membangun masa depan dengan karya digital.”
+    </div>
+  </section>
+  <!-- ARTICLE -->
+  <section class="container" id="perjalanan">
+    <div class="section-label">02 — MY STORY</div>
+    <h2>Perjalanan Kholis di Dunia Digital</h2>
+    <div class="article-layout">
+      <article class="article">
+        <h3 id="awal">Berawal dari Game dan Rasa Penasaran</h3>
+        <p>
+          Halo, nama saya <strong>Nur Khalis</strong>, atau lebih
+          dikenal dengan nama <strong>Kholis</strong>. Saya memiliki
+          ketertarikan pada dunia gaming dan teknologi. Dari bermain
+          game, saya mulai melihat bahwa sebuah hobi bisa membuka
+          jalan untuk mempelajari keterampilan baru.
+        </p>
+        <p>
+          Dunia digital berkembang dengan cepat. Internet bukan
+          hanya tempat hiburan, tetapi juga tempat belajar,
+          menciptakan karya, membangun komunitas, dan mengembangkan
+          keterampilan yang berpotensi menghasilkan uang.
+        </p>
+        <h3 id="gaming">Mengembangkan Peluang dari Gaming</h3>
+        <p>
+          Gaming bukan hanya soal menang atau naik level. Di baliknya
+          terdapat komunitas, kreativitas, strategi, dan peluang bisnis.
+          Dengan keterampilan yang tepat, seseorang bisa mencoba
+          berbagai bidang yang berkaitan dengan game.
+        </p>
+        <ul>
+          <li>Membuat konten gaming dan membangun audiens.</li>
+          <li>Mengembangkan komunitas game yang aktif.</li>
+          <li>Mempelajari desain, editing, dan kebutuhan pemain.</li>
+          <li>Mengeksplorasi layanan digital yang sesuai aturan game.</li>
+        </ul>
+        <p>
+          Semua peluang tersebut membutuhkan proses. Penghasilan dapat
+          berbeda-beda tergantung kemampuan, waktu, permintaan pasar,
+          dan konsistensi.
+        </p>
+        <h3 id="website">Membangun Website dan Karya Digital</h3>
+        <p>
+          Selain gaming, membuat website adalah bidang yang menarik
+          bagi saya. Website dapat digunakan untuk membangun portofolio,
+          memperkenalkan bisnis, membuat toko online, atau membantu
+          seseorang mempromosikan produknya.
+        </p>
+        <p>
+          Dengan mempelajari HTML, CSS, dan JavaScript, kita bisa mulai
+          membangun halaman web sendiri. Setelah kemampuan berkembang,
+          keterampilan tersebut bisa digunakan untuk menawarkan jasa
+          pembuatan website kepada individu maupun bisnis.
+        </p>
+        <ul>
+          <li>Website portofolio dan profil bisnis.</li>
+          <li>Landing page untuk promosi produk.</li>
+          <li>Website komunitas dan halaman informasi.</li>
+          <li>Perawatan dan pengembangan website.</li>
+        </ul>
+        <h3 id="penghasilan">
+          Bisakah Menghasilkan Puluhan Juta Rupiah?
+        </h3>
+        <p>
+          Potensinya ada, tetapi tidak instan dan tidak dijamin.
+          Penghasilan puluhan juta rupiah per bulan dapat menjadi
+          target bisnis digital yang dibangun dengan keterampilan,
+          reputasi, pelanggan, dan strategi yang matang.
+        </p>
+        <p>
+          Sebagai ilustrasi, jika seorang developer memperoleh
+          10 proyek website dengan nilai Rp2.000.000 per proyek,
+          total pendapatan kotornya mencapai Rp20.000.000.
+          Angka tersebut hanya contoh perhitungan, bukan hasil
+          aktual atau jaminan mendapatkan pelanggan.
+        </p>
+        <p>
+          Pendapatan dari gaming dapat berasal dari iklan, sponsor,
+          konten, atau aktivitas digital lain yang legal. Hasilnya
+          bergantung pada audiens, platform, dan model bisnis yang dipilih.
+        </p>
+        <h3 id="prinsip">Prinsip yang Ingin Saya Pegang</h3>
+        <p>
+          Bagi saya, membangun penghasilan digital bukan hanya soal uang.
+          Kemampuan untuk terus belajar, menyelesaikan masalah, menjaga
+          kepercayaan pelanggan, dan menghasilkan karya berkualitas
+          jauh lebih penting untuk jangka panjang.
+        </p>
+        <p>
+          Perjalanan setiap orang berbeda. Yang terpenting adalah berani
+          memulai, meningkatkan keterampilan, dan tidak mudah menyerah
+          ketika hasil belum sesuai harapan.
+        </p>
+      </article>
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="side-card">
+          <h4>DAFTAR ARTIKEL</h4>
+          <a href="#awal">01. Tentang Kholis</a>
+          <a href="#gaming">02. Peluang Gaming</a>
+          <a href="#website">03. Membuat Website</a>
+          <a href="#penghasilan">04. Potensi Penghasilan</a>
+          <a href="#prinsip">05. Prinsip Berkarya</a>
+        </div>
+        <div class="side-card">
+          <h4>FOKUS SAYA</h4>
+          <a href="#gaming">Gaming & Digital Community</a>
+          <a href="#website">Website Development</a>
+          <a href="#peluang">Kreativitas & Bisnis Online</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+  <!-- OPPORTUNITIES -->
+  <section class="container" id="peluang">
+    <div class="section-label">03 — OPPORTUNITIES</div>
+    <h2>Tiga Jalur di Dunia Digital</h2>
+    <p class="intro">
+      Beberapa bidang yang bisa dipelajari untuk membangun keterampilan
+      dan membuka peluang pendapatan.
+    </p>
+    <div class="income-grid">
+      <div class="income-card reveal">
+        <div class="icon">🎮</div>
+        <h3>Gaming & Content</h3>
+        <p>
+          Mengembangkan konten, membangun audiens, dan mengeksplorasi
+          peluang iklan atau sponsor.
+        </p>
+      </div>
+      <div class="income-card reveal">
+        <div class="icon">💻</div>
+        <h3>Website Development</h3>
+        <p>
+          Belajar membuat website, landing page, dan portofolio digital
+          untuk kebutuhan individu maupun bisnis.
+        </p>
+      </div>
+      <div class="income-card reveal">
+        <div class="icon">🚀</div>
+        <h3>Digital Business</h3>
+        <p>
+          Mengembangkan produk digital dan layanan berbasis keterampilan
+          dengan strategi yang berkelanjutan.
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- MOTIVATION -->
+  <section class="container motivation-section" id="motivasi">
+    <div class="section-label">04 — MINDSET & MOTIVATION</div>
+    <h2>
+      Kata-Kata untuk Mereka yang
+      <span class="gradient">Tidak Mau Menyerah.</span>
+    </h2>
+    <p class="intro">
+      Kesuksesan bukan tentang siapa yang paling cepat,
+      tetapi siapa yang terus berkembang ketika orang lain berhenti.
+    </p>
+    <div class="motivation-card reveal">
+      <div class="motivation-number">MINDSET 001</div>
+      <h3>
+        "Jangan Takut Memulai dari Nol.
+        <span class="motivation-highlight">
+          Takutlah Jika Kamu Berhenti Bertumbuh.
+        </span>"
+      </h3>
+      <p>
+        Semua orang hebat pernah menjadi pemula. Pelajari hal baru,
+        perbaiki kesalahan, dan jadikan setiap kegagalan sebagai
+        alasan untuk menjadi lebih kuat.
+      </p>
+    </div>
+    <div class="motivation-card reveal">
+      <div class="motivation-number">MINDSET 002</div>
+      <h3>
+        "Bangun Skill dalam Diam,
+        <span class="motivation-highlight">
+          Biarkan Hasil yang Berbicara.
+        </span>"
+      </h3>
+      <p>
+        Tidak semua proses harus dipamerkan. Fokus pada kemampuan,
+        kualitas karya, dan konsistensi. Biarkan hasil kerja nyata
+        menunjukkan seberapa jauh kamu berkembang.
+      </p>
+    </div>
+    <div class="motivation-card reveal">
+      <div class="motivation-number">MINDSET 003</div>
+      <h3>
+        "Jadikan Game sebagai Hiburan,
+        <span class="motivation-highlight">
+          Jadikan Skill sebagai Masa Depan.
+        </span>"
+      </h3>
+      <p>
+        Manfaatkan rasa penasaranmu terhadap teknologi. Belajar membuat
+        website, membangun komunitas, dan menciptakan sesuatu yang
+        memiliki nilai bagi orang lain.
+      </p>
+    </div>
+    <div class="motivation-card reveal">
+      <div class="motivation-number">MINDSET 004</div>
+      <h3>
+        "Target Besar Tidak Butuh Banyak Alasan,
+        <span class="motivation-highlight">
+          Target Besar Butuh Tindakan.
+        </span>"
+      </h3>
+      <p>
+        Penghasilan besar tidak datang hanya dari keinginan. Bangun
+        keterampilan, cari pengalaman, jaga kepercayaan, dan terus
+        tingkatkan kualitas pekerjaanmu.
+      </p>
+    </div>
+    <div class="motivation-card reveal">
+      <div class="motivation-number">KHOLIS — PERSONAL PRINCIPLE</div>
+      <h3>
+        "Aku Tidak Harus Lebih Hebat dari Semua Orang.
+        <span class="gradient">
+          Aku Hanya Harus Lebih Baik dari Diriku yang Kemarin.
+        </span>"
+      </h3>
+      <p>
+        Terus melangkah, terus belajar, dan jangan biarkan proses
+        orang lain membuatmu meragukan perjalananmu sendiri.
+      </p>
+    </div>
+  </section>
+  <!-- CLOSING: TANPA TOMBOL WHATSAPP -->
+  <section class="container">
+    <div class="cta reveal">
+      <div class="section-label">LET'S BUILD SOMETHING</div>
+      <h2>
+        Masa Depan Digital Dimulai dari
+        <span class="gradient">Sekarang.</span>
+      </h2>
+      <p>
+        Terus belajar, terus berkarya, dan ubah ide menjadi sesuatu
+        yang memiliki nilai. Setiap langkah kecil bisa menjadi
+        awal dari perjalanan besar.
+      </p>
+    </div>
+  </section>
+</main>
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <span>
+      © <span id="year"></span> KHOLIS. All rights reserved.
+    </span>
+    <span>
+      Gaming · Technology · Digital Creation
+    </span>
+  </div>
+</footer>
+<script>
+  // Tahun otomatis
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+  // Animasi ketika elemen muncul saat halaman digulir
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+  document.querySelectorAll(".reveal").forEach((element) => {
+    observer.observe(element);
+  });
+</script>
+</body>
+</html>
